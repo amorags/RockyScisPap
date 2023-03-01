@@ -92,6 +92,13 @@
                </children>
             </HBox>
          </top>
+         <center>
+            <ImageView fitHeight="444.0" fitWidth="944.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../../../../../../Downloads/background.jpg" />
+               </image>
+            </ImageView>
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>
