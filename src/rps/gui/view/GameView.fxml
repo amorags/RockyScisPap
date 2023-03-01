@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -18,7 +19,7 @@
          <top>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: Black;" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="playerName" alignment="CENTER" layoutX="356.0" layoutY="24.0" prefHeight="70.0" prefWidth="118.0" text="YOU">
+                  <Label fx:id="playerName" alignment="CENTER" layoutX="356.0" layoutY="24.0" prefHeight="70.0" prefWidth="243.0" text="YOU">
                      <font>
                         <Font name="Segoe UI Black Italic" size="48.0" />
                      </font>
@@ -86,7 +87,7 @@
                         </LinearGradient>
                      </textFill>
                   </Label>
-                  <Label fx:id="cpuName" alignment="CENTER" layoutX="486.0" layoutY="24.0" prefHeight="70.0" prefWidth="139.0" text="CPU">
+                  <Label fx:id="cpuName" alignment="CENTER" layoutX="486.0" layoutY="24.0" prefHeight="70.0" prefWidth="262.0" text="CPU">
                      <font>
                         <Font name="Segoe UI Black" size="48.0" />
                      </font>
@@ -110,13 +111,6 @@
                </children>
             </HBox>
          </top>
-         <right>
-            <ImageView fitHeight="539.0" fitWidth="991.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@../../../img/background.jpg" />
-               </image>
-            </ImageView>
-         </right>
          <bottom>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
@@ -126,6 +120,38 @@
                </children>
             </HBox>
          </bottom>
+         <center>
+            <StackPane alignment="TOP_CENTER" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="441.0" fitWidth="973.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/background.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="winLose" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="114.0" prefWidth="246.0" text="YOU WIN" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold Italic" size="48.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient cycleMethod="REFLECT" endX="0.8409090665253726" endY="1.0" startX="0.3219696608456698" startY="0.36363632389993367">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.20000000298023224" green="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.4771929681301117" green="0.8460233807563782" blue="0.8947368264198303" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+               </children>
+            </StackPane>
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>
