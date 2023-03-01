@@ -1,12 +1,13 @@
 package rps.gui.controller;
 
 // Java imports
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import rps.gui.ConsoleApp;
 
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -15,7 +16,7 @@ import java.util.ResourceBundle;
  * @author smsj
  */
 public class GameViewController implements Initializable {
-
+   private ConsoleApp consoleApp;
     @FXML
     private Label cpuName;
 
@@ -37,20 +38,7 @@ public class GameViewController implements Initializable {
     @FXML
     private Button btnSci;
 
-    @FXML
-    void handlePaper(ActionEvent event) {
 
-    }
-
-    @FXML
-    void handleRock(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleSci(ActionEvent event) {
-
-    }
 
 
 
@@ -59,6 +47,16 @@ public class GameViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        cpuName.setText(consoleApp.getRandomBotName());
+    }
+
+    public void handleRock(javafx.event.ActionEvent actionEvent) {
+    }
+
+    public void handlePaper(ActionEvent actionEvent) {
+    }
+
+    public void handleSci(ActionEvent actionEvent) {
+        
     }
 }
