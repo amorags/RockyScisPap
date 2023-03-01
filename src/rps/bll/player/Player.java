@@ -7,6 +7,7 @@ import rps.bll.game.Result;
 
 //Java imports
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Example implementation of a player.
@@ -50,6 +51,15 @@ public class Player implements IPlayer {
         ArrayList<Result> results = (ArrayList<Result>) state.getHistoricResults();
 
         //Implement better AI here...
-        return Move.Rock;
+        return  simpleAI();
+    }
+
+    private Move simpleAI(){
+        ArrayList<Move> moves = new ArrayList<>();
+        moves.add(Move.Paper);
+        moves.add(Move.Scissor);
+        moves.add(Move.Rock);
+        Collections.shuffle(moves);
+        return moves.get(0);
     }
 }
