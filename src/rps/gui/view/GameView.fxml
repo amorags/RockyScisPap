@@ -20,7 +20,7 @@
                <children>
                   <ImageView fitHeight="91.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../rock.PNG" />
+                        <Image url="@../../../img/rock.PNG" />
                      </image>
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" />
@@ -28,7 +28,7 @@
                   </ImageView>
                   <ImageView fitHeight="94.0" fitWidth="77.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../paper.PNG" />
+                        <Image url="@../../../img/paper.PNG" />
                      </image>
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" />
@@ -36,7 +36,7 @@
                   </ImageView>
                   <ImageView fitHeight="88.0" fitWidth="123.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../scissors.PNG" />
+                        <Image url="@../../../img/scissors.PNG" />
                      </image>
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" />
