@@ -15,7 +15,7 @@ import rps.gui.JavaFXApp;
         @Override
         public void start(Stage primaryStage) throws Exception{
             Parent root = FXMLLoader.load(getClass().getResource("gui/view/GameView.fxml"));
-            primaryStage.setTitle("Movie Recommendation System 0.01 Beta");
+            primaryStage.setTitle("Rock Paper Scissor");
             // primaryStage.setFullScreen(true);
             primaryStage.setScene(new Scene(root));
             primaryStage.show();

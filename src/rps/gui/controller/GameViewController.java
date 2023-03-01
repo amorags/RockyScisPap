@@ -47,7 +47,6 @@ public class GameViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cpuName.setText(consoleApp.getRandomBotName());
     }
 
     public void handleRock(javafx.event.ActionEvent actionEvent) {
@@ -57,6 +56,6 @@ public class GameViewController implements Initializable {
     }
 
     public void handleSci(ActionEvent actionEvent) {
-        
+
     }
 }
