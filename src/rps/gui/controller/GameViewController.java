@@ -10,13 +10,18 @@ import rps.gui.ConsoleApp;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
 
 /**
  *
  * @author smsj
  */
 public class GameViewController implements Initializable {
+
    private ConsoleApp consoleApp;
+
+   @FXML
+   private Label winLose;
     @FXML
     private Label cpuName;
 
@@ -47,9 +52,17 @@ public class GameViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+     winLose.setVisible(false);
+     this.consoleApp = new ConsoleApp();
+     String name = consoleApp.getRandomBotName();
+     cpuName.setText(name);
     }
 
-    public void handleRock(javafx.event.ActionEvent actionEvent) {
+    public void handleRock(javafx.event.ActionEvent actionEvent) throws InterruptedException {
+      winLose.setVisible(true);
+      wait(50);
+      winLose.setVisible(false);
+
     }
 
     public void handlePaper(ActionEvent actionEvent) {
