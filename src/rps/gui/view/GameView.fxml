@@ -18,7 +18,7 @@
          <top>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: Black;" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" layoutX="356.0" layoutY="24.0" prefHeight="70.0" prefWidth="118.0" text="YOU">
+                  <Label fx:id="playerName" alignment="CENTER" layoutX="356.0" layoutY="24.0" prefHeight="70.0" prefWidth="118.0" text="YOU">
                      <font>
                         <Font name="Segoe UI Black Italic" size="48.0" />
                      </font>
@@ -39,7 +39,7 @@
                         </LinearGradient>
                      </textFill>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="52.0" text="0">
+                  <Label fx:id="scoreP1" alignment="CENTER" prefHeight="58.0" prefWidth="52.0" text="0">
                      <font>
                         <Font name="Segoe UI Black" size="48.0" />
                      </font>
@@ -65,7 +65,7 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="456.0" layoutY="24.0" prefHeight="58.0" prefWidth="52.0" text="0">
+                  <Label fx:id="scoreCPU" alignment="CENTER" layoutX="456.0" layoutY="24.0" prefHeight="58.0" prefWidth="52.0" text="0">
                      <font>
                         <Font name="Segoe UI Black" size="48.0" />
                      </font>
@@ -86,7 +86,7 @@
                         </LinearGradient>
                      </textFill>
                   </Label>
-                  <Label alignment="CENTER" layoutX="486.0" layoutY="24.0" prefHeight="70.0" prefWidth="139.0" text="CPU">
+                  <Label fx:id="cpuName" alignment="CENTER" layoutX="486.0" layoutY="24.0" prefHeight="70.0" prefWidth="139.0" text="CPU">
                      <font>
                         <Font name="Segoe UI Black" size="48.0" />
                      </font>
