@@ -1,16 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
+<AnchorPane prefHeight="636.0" prefWidth="943.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
    <children>
-      <Label layoutX="86.0" layoutY="190.0" text="Now you can start to build the GUI and implement an awesome game">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
+      <BorderPane layoutY="-1.0" prefHeight="636.0" prefWidth="943.0" style="-fx-background-color: #0d0859;">
+         <bottom>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #0d0859;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="91.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../rock.PNG" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="94.0" fitWidth="77.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../paper.PNG" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="88.0" fitWidth="123.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../scissors.PNG" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+         </bottom>
+         <top>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: sand;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutX="356.0" layoutY="24.0" prefHeight="70.0" prefWidth="118.0" text="YOU" textFill="#bc6f17">
+                     <font>
+                        <Font name="Segoe UI Black" size="48.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="52.0" text="0" textFill="#bc6f17">
+                     <font>
+                        <Font name="Segoe UI Black" size="48.0" />
+                     </font>
+                  </Label>
+                  <Label text="|">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="456.0" layoutY="24.0" prefHeight="58.0" prefWidth="52.0" text="0">
+                     <font>
+                        <Font name="Segoe UI Black" size="48.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient cycleMethod="REPEAT" endX="0.2121211732878829" endY="0.8636363717642698" startX="0.011363634557435007" startY="0.5984848195856267">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.7368420958518982" green="0.4707602262496948" blue="0.20467835664749146" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.7300000190734863" green="0.6077082753181458" blue="0.09489999711513519" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="486.0" layoutY="24.0" prefHeight="70.0" prefWidth="139.0" text="CPU" textFill="#f2b138">
+                     <font>
+                        <Font name="Segoe UI Black" size="48.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
    </children>
 </AnchorPane>
