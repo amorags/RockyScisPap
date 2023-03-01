@@ -116,7 +116,7 @@
                <children>
                   <Button fx:id="btnRock" mnemonicParsing="false" onAction="#handleRock" prefHeight="38.0" prefWidth="98.0" text="Rock" />
                   <Button fx:id="btnPaper" mnemonicParsing="false" onAction="#handlePaper" prefHeight="39.0" prefWidth="86.0" text="Paper" />
-                  <Button fx:id="btnSci" mnemonicParsing="false" onAction="#handleSci" prefHeight="40.0" prefWidth="93.0" text="Scissor" />
+                  <Button fx:id="btnSci" mnemonicParsing="false" onAction="#handleScissor" prefHeight="40.0" prefWidth="93.0" text="Scissor" />
                </children>
             </HBox>
          </bottom>

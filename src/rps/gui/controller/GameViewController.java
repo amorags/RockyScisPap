@@ -6,11 +6,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import rps.bll.game.Move;
+import rps.bll.player.Player;
 import rps.gui.ConsoleApp;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
 
 /**
  *
@@ -18,10 +21,9 @@ import java.util.Timer;
  */
 public class GameViewController implements Initializable {
 
-   private ConsoleApp consoleApp;
 
-   @FXML
-   private Label winLose;
+
+   private ConsoleApp consoleApp;
     @FXML
     private Label cpuName;
 
@@ -39,9 +41,19 @@ public class GameViewController implements Initializable {
 
     @FXML
     private Button btnRock;
+ @FXML
+ private Label answer;
 
     @FXML
     private Button btnSci;
+ @FXML
+ private ImageView aiHand;
+
+ @FXML
+ private ImageView playerHand;
+
+    private int scoreInt = 0;
+    public String opponentMove = "";
 
 
 
@@ -52,23 +64,95 @@ public class GameViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     winLose.setVisible(false);
-     this.consoleApp = new ConsoleApp();
-     String name = consoleApp.getRandomBotName();
-     cpuName.setText(name);
     }
+public void opponentMove(){
 
-    public void handleRock(javafx.event.ActionEvent actionEvent) throws InterruptedException {
-      winLose.setVisible(true);
-      wait(50);
-      winLose.setVisible(false);
+     int rand =(int)(Math.random() * 3);
+     if (rand == 0) {
+      opponentMove = "Rock";
+      Image rockHandAi = new Image(getClass().getResourceAsStream("/img/rock.PNG"));
+      aiHand.setImage(rockHandAi);
+     }
+      else if(rand == 1) {
+      opponentMove = "Paper";
+      Image paperHandAi = new Image(getClass().getResourceAsStream("/img/paper.PNG"));
+      aiHand.setImage(paperHandAi);
+     }
+      else {
+       opponentMove = "Scissors";
+       Image scissorHandAi = new Image(getClass().getResourceAsStream("/img/scissors.PNG"));
+       aiHand.setImage(scissorHandAi);
+
+
+     }
+
+
+}
+
+
+
+    public void handleRock(ActionEvent actionEvent) {
+
+     Image rockImage = new Image(getClass().getResourceAsStream("/img/rock.PNG"));
+     playerHand.setImage(rockImage);
+     opponentMove();
+     if (opponentMove.equals("Scissors")){
+      answer.setText("YOU WON");
+      scoreInt += 1;
+      scoreP1.setText(Integer.toString(scoreInt));
+     }
+     else if (opponentMove.equals("Rock")) {
+      answer.setText("IT'S A TIE");
+     }
+     else {
+      answer.setText("YOU LOSE");
+      scoreInt += 1;
+      scoreCPU.setText(Integer.toString(scoreInt));
+     }
+
 
     }
 
     public void handlePaper(ActionEvent actionEvent) {
+     Image paperImage = new Image(getClass().getResourceAsStream("/img/paper.PNG"));
+     playerHand.setImage(paperImage);
+     opponentMove();
+     if (opponentMove.equals("Rock")) {
+      answer.setText("YOU WON");
+      scoreInt += 1;
+      scoreP1.setText(Integer.toString(scoreInt));
+     } else if (opponentMove.equals("Paper")) {
+      answer.setText("IT'S A TIE");
+     } else {
+      answer.setText("YOU LOSE");
+      scoreInt += 1;
+      scoreCPU.setText(Integer.toString(scoreInt));
+     }
     }
 
-    public void handleSci(ActionEvent actionEvent) {
+     public void handleScissor(ActionEvent actionEvent) {
+      Image scissorImage = new Image(getClass().getResourceAsStream("/img/scissors.PNG"));
+      playerHand.setImage(scissorImage);
+      opponentMove();
+      if (opponentMove.equals("Paper")){
+       answer.setText("YOU WON");
+       scoreInt += 1;
+       scoreP1.setText(Integer.toString(scoreInt));
+      }
+      else if (opponentMove.equals("Scissor")) {
+       answer.setText("IT'S A TIE");
+      }
+      else {
+       answer.setText("YOU LOSE");
+       scoreInt += 1;
+       scoreCPU.setText(Integer.toString(scoreInt));
+      }
+
+
+
+     }
 
     }
-}
+
+
+
