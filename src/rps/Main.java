@@ -1,44 +1,31 @@
 package rps;
 
 //Project imports
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import rps.gui.ConsoleApp;
 import rps.gui.JavaFXApp;
 
-/**
- * Main class where we start
- *
- * @author smsj
- */
-public class Main {
+
+    public class Main extends Application {
+
+        @Override
+        public void start(Stage primaryStage) throws Exception{
+            Parent root = FXMLLoader.load(getClass().getResource("gui/view/GameView.fxml"));
+            primaryStage.setTitle("Movie Recommendation System 0.01 Beta");
+            // primaryStage.setFullScreen(true);
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+        }
 
 
-    /**
-     * Main start
-     * @param args
-     */
-    public static void main(String[] args)
-    {
-        //Console version
-        startRPSConsoleGame();
-
-        //JavaFX version
-        //startRPSJavaFXGame();
+        public static void main(String[] args) {
+            launch(args);
+        }
     }
-
-    /**
-     * Start a JavaFX version of the game
-     */
-    private static void startRPSJavaFXGame() {
-        JavaFXApp.launch();
-    }
-
-    /**
-     * Start a console version of the game
-     */
-    public static void startRPSConsoleGame() {
-        new ConsoleApp().startGame();
-    }
-}
 
 
 
