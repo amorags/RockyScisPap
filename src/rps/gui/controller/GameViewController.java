@@ -58,11 +58,26 @@ public class GameViewController implements Initializable {
 
     @FXML
     private Button btnRock;
+
     @FXML
-    private ImageView rockHandV;
+    private ImageView humRock;
+
     @FXML
-    private ImageView rockHandH;
+    private ImageView humSci;
+
     @FXML
+ private ImageView humPap;
+
+    @FXML
+ private ImageView cpuPap;
+
+    @FXML
+ private ImageView cpuRock;
+
+ @FXML
+ private ImageView cpuSci;
+
+
 
 
     @FXML
@@ -83,6 +98,7 @@ public class GameViewController implements Initializable {
      String pname = consoleApp.getRandomPlayerName();
      playerName.setText(pname);
      cpuName.setText(name);
+     setImageOff();
     }
 
     public void setScoreP1(){
@@ -110,24 +126,33 @@ public void setGameRound(){
       Move aiMove = ai.simpleAIMove();
 
       if (aiMove == Move.Rock) {
+       setImageOff();
        resetLabel(winLose);
        fillLabel(winLose, "DRAW!");
        setGameRound();
+       setImage(cpuRock);
+       setImage(humRock);
        startLabelPulsating(winLose);
       }
 
       if (aiMove == Move.Scissor) {
+       setImageOff();
        resetLabel(winLose);
        fillLabel(winLose, "YOU WIN!");
        setScoreP1();
+       setImage(cpuSci);
+       setImage(humRock);
        setGameRound();
        startLabelPulsating(winLose);
       }
 
      if (aiMove == Move.Paper) {
+      setImageOff();
       resetLabel(winLose);
       fillLabel(winLose, "YOU LOSE!");
       setScoreCPU();
+      setImage(cpuPap);
+      setImage(humRock);
       setGameRound();
       startLabelPulsating(winLose);
      }
@@ -139,26 +164,35 @@ public void setGameRound(){
      Move aiMove = ai.simpleAIMove();
 
      if (aiMove == Move.Rock) {
+      setImageOff();
       resetLabel(winLose);
       fillLabel(winLose, "YOU WIN!");
       setScoreP1();
       setGameRound();
+      setImage(cpuRock);
+      setImage(humPap);
       startLabelPulsating(winLose);
      }
 
      if (aiMove == Move.Scissor) {
+      setImageOff();
       resetLabel(winLose);
       fillLabel(winLose, "YOU LOSE!");
       setScoreCPU();
+      setImage(cpuSci);
+      setImage(humPap);
       setGameRound();
       startLabelPulsating(winLose);
 
      }
 
      if (aiMove == Move.Paper) {
+      setImageOff();
       resetLabel(winLose);
       fillLabel(winLose, "DRAW!");
       setGameRound();
+      setImage(cpuPap);
+      setImage(humPap);
       startLabelPulsating(winLose);
      }
     }
@@ -168,18 +202,24 @@ public void setGameRound(){
      Move aiMove = ai.simpleAIMove();
 
      if (aiMove == Move.Rock) {
+      setImageOff();
       resetLabel(winLose);
       fillLabel(winLose, "YOU LOSE!");
       setScoreCPU();
       setGameRound();
+      setImage(cpuRock);
+      setImage(humSci);
       startLabelPulsating(winLose);
 
      }
 
      if (aiMove == Move.Scissor) {
+      setImageOff();
       resetLabel(winLose);
       fillLabel(winLose, "DRAW!");
       setGameRound();
+      setImage(cpuSci);
+      setImage(humSci);
       startLabelPulsating(winLose);
 
 
@@ -187,10 +227,13 @@ public void setGameRound(){
      }
 
      if (aiMove == Move.Paper) {
+      setImageOff();
       resetLabel(winLose);
       fillLabel(winLose, "YOU WIN!");
       setScoreP1();
       setGameRound();
+      setImage(cpuPap);
+      setImage(humSci);
       startLabelPulsating(winLose);
      }
     }
@@ -225,5 +268,19 @@ public void setGameRound(){
      scoreCPU.setText("" + 0);
      scoreP1.setText("" + 0);
      winLose.setVisible(false);
+     setImageOff();
+ }
+
+ public void setImageOff(){
+     humPap.setVisible(false);
+     humRock.setVisible(false);
+     humSci.setVisible(false);
+     cpuPap.setVisible(false);
+     cpuRock.setVisible(false);
+     cpuSci.setVisible(false);
+ }
+
+ public void setImage(ImageView imageview){
+     imageview.setVisible(true);
  }
 }
