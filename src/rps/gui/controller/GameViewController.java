@@ -32,10 +32,13 @@ public class GameViewController implements Initializable {
 
  private AI ai;
 
+
    private ConsoleApp consoleApp;
    private Move move;
+   private int gameRound = 0;
 
-
+   @FXML
+   private Label labelRound;
    @FXML
    private Label winLose;
     @FXML
@@ -72,6 +75,8 @@ public class GameViewController implements Initializable {
      winLose.setVisible(false);
      this.consoleApp = new ConsoleApp();
      String name = consoleApp.getRandomBotName();
+     String pname = consoleApp.getRandomPlayerName();
+     playerName.setText(pname);
      cpuName.setText(name);
     }
 
@@ -79,36 +84,46 @@ public class GameViewController implements Initializable {
      p1Score = p1Score + 1;
      scoreP1.setText(p1Score + "");
  }
+public void setGameRound(){
 
+     gameRound = gameRound + 1;
+     labelRound.setText("Round: " + gameRound);
+
+    }
  public void setScoreCPU(){
   cpuScore = cpuScore + 1;
   scoreCPU.setText(cpuScore + "");
  }
 
-    public void resetGame(){
-     winLose.setVisible(false);
-    }
+ public void fillLabel(Label label, String text) {
+  label.setVisible(true);
+  label.setText(text);
+ }
 
     public void handleRock(javafx.event.ActionEvent actionEvent) {
      ai.simpleAIMove();
       Move aiMove = ai.simpleAIMove();
 
       if (aiMove == Move.Rock) {
-       winLose.setText("Draw");
-       winLose.setVisible(true);
+       resetLabel(winLose);
+       fillLabel(winLose, "DRAW!");
+       setGameRound();
        startLabelPulsating(winLose);
-
       }
 
       if (aiMove == Move.Scissor) {
-       winLose.setText("YOU WIN!");
+       resetLabel(winLose);
+       fillLabel(winLose, "YOU WIN!");
        setScoreP1();
+       setGameRound();
        startLabelPulsating(winLose);
       }
 
      if (aiMove == Move.Paper) {
-      winLose.setText("YOU LOSE!");
+      resetLabel(winLose);
+      fillLabel(winLose, "YOU LOSE!");
       setScoreCPU();
+      setGameRound();
       startLabelPulsating(winLose);
      }
 
@@ -119,23 +134,26 @@ public class GameViewController implements Initializable {
      Move aiMove = ai.simpleAIMove();
 
      if (aiMove == Move.Rock) {
-      winLose.setText("YOU WIN");
-      winLose.setVisible(true);
+      resetLabel(winLose);
+      fillLabel(winLose, "YOU WIN!");
       setScoreP1();
+      setGameRound();
       startLabelPulsating(winLose);
      }
 
      if (aiMove == Move.Scissor) {
-      winLose.setText("YOU LOSE!");
-      winLose.setVisible(true);
+      resetLabel(winLose);
+      fillLabel(winLose, "YOU LOSE!");
       setScoreCPU();
+      setGameRound();
       startLabelPulsating(winLose);
 
      }
 
      if (aiMove == Move.Paper) {
-      winLose.setText("DRAW!");
-      winLose.setVisible(true);
+      resetLabel(winLose);
+      fillLabel(winLose, "DRAW!");
+      setGameRound();
       startLabelPulsating(winLose);
      }
     }
@@ -145,23 +163,29 @@ public class GameViewController implements Initializable {
      Move aiMove = ai.simpleAIMove();
 
      if (aiMove == Move.Rock) {
-      winLose.setText("YOU LOSE");
-      winLose.setVisible(true);
+      resetLabel(winLose);
+      fillLabel(winLose, "YOU LOSE!");
       setScoreCPU();
+      setGameRound();
       startLabelPulsating(winLose);
+
      }
 
      if (aiMove == Move.Scissor) {
-      winLose.setText("DRAW!");
-      winLose.setVisible(true);
+      resetLabel(winLose);
+      fillLabel(winLose, "DRAW!");
+      setGameRound();
       startLabelPulsating(winLose);
+
+
 
      }
 
      if (aiMove == Move.Paper) {
-      winLose.setText("YOU WIN!");
-      winLose.setVisible(true);
+      resetLabel(winLose);
+      fillLabel(winLose, "YOU WIN!");
       setScoreP1();
+      setGameRound();
       startLabelPulsating(winLose);
      }
     }
@@ -178,8 +202,23 @@ public class GameViewController implements Initializable {
   PauseTransition pauseTransition = new PauseTransition(Duration.seconds(5));
   pauseTransition.setOnFinished(event -> {
    scaleTransition.stop();
-   label.setVisible(false);
   });
   pauseTransition.play();
+ }
+
+ public void resetLabel(Label label){
+  label.setScaleX(1);
+  label.setScaleY(1);
+  label.setVisible(false);
+ }
+
+ public void handleReset(ActionEvent actionEvent) {
+     gameRound = 0;
+     cpuScore = 0;
+     p1Score = 0;
+     labelRound.setText("Round: 0");
+     scoreCPU.setText("" + 0);
+     scoreP1.setText("" + 0);
+     winLose.setVisible(false);
  }
 }

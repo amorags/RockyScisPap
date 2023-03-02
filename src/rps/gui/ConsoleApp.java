@@ -58,16 +58,24 @@ public class ConsoleApp {
     public String getRandomBotName() {
         String[] botNames = new String[] {
                 "R2D2",
-                "Mr. Data",
-                "Turing",
-                "Bender",
+                "TURING",
+                "BENDER",
                 "WALL-E",
-                "Bishop",
-                "Robot B-9",
-                "HAL"
         };
         int randomNumber = new Random().nextInt(botNames.length - 1);
         return botNames[randomNumber];
+    }
+
+    public String getRandomPlayerName() {
+        String[] playerNames = new String[] {
+
+                "PLAYER",
+                "NEO",
+                "LUKE",
+                "FRY"
+        };
+        int randomNumber = new Random().nextInt(playerNames.length - 1);
+        return playerNames[randomNumber];
     }
 
 

@@ -22,21 +22,42 @@
          <top>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: Black;" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="playerName" alignment="CENTER" layoutX="356.0" layoutY="24.0" prefHeight="70.0" prefWidth="243.0" text="YOU">
+                  <Label fx:id="labelRound" prefHeight="58.0" prefWidth="120.0" text="Round: 0">
                      <font>
-                        <Font name="Segoe UI Black Italic" size="48.0" />
+                        <Font name="Franklin Gothic Heavy" size="24.0" />
                      </font>
                      <textFill>
-                        <LinearGradient endX="0.7500000577984434" endY="1.0" startX="0.8257576055598982" startY="0.734848470398874">
+                        <LinearGradient cycleMethod="REFLECT" endX="0.8409090665253726" endY="1.0" startX="0.3219696608456698" startY="0.36363632389993367">
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.0998050719499588" green="0.21458089351654053" blue="0.6736842393875122" />
+                                    <Color red="0.20000000298023224" green="1.0" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                    <Color red="0.6491072177886963" green="0.9263157844543457" blue="0.5798050761222839" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Label fx:id="playerName" alignment="CENTER" layoutX="356.0" layoutY="24.0" prefHeight="70.0" prefWidth="242.0" text="YOU">
+                     <font>
+                        <Font name="Segoe UI Black Italic" size="48.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="0.7916666576356598" startY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.3391812741756439" green="0.7894737124443054" blue="0.4592592716217041" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.11708901822566986" green="0.8947368264198303" blue="0.04639376327395439" />
                                  </color>
                               </Stop>
                            </stops>
@@ -51,16 +72,21 @@
                         <Font name="Segoe UI Black" size="48.0" />
                      </font>
                      <textFill>
-                        <LinearGradient cycleMethod="REFLECT" endX="0.03409096779245313" endY="1.0" startX="0.8257576055598982" startY="0.5909090872966882">
+                        <LinearGradient cycleMethod="REFLECT" endX="0.53125" endY="1.0" startX="0.8257576055598982" startY="0.2651514970895016">
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.0998050719499588" green="0.21458089351654053" blue="0.6736842393875122" />
+                                    <Color red="0.06862767785787582" green="0.9157894849777222" blue="0.05426900461316109" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.42873978268719437">
+                                 <color>
+                                    <Color red="0.5564799904823303" green="0.9399999976158142" blue="0.46059998869895935" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                    <Color red="0.5571929812431335" green="0.9473684430122375" blue="0.45964911580085754" />
                                  </color>
                               </Stop>
                            </stops>
@@ -100,12 +126,12 @@
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.821052610874176" green="0.07283040881156921" blue="0.03345029056072235" />
+                                    <Color red="0.2672748565673828" green="0.9157894849777222" blue="0.10514619946479797" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="0.8514000177383423" green="0.8600000143051147" blue="0.8554489612579346" />
+                                    <Color red="0.43424561619758606" green="0.9578947424888611" blue="0.3760623633861542" />
                                  </color>
                               </Stop>
                            </stops>
@@ -115,21 +141,26 @@
                         <Bloom />
                      </effect>
                   </Label>
-                  <Label fx:id="cpuName" alignment="CENTER" layoutX="486.0" layoutY="24.0" prefHeight="70.0" prefWidth="262.0" text="CPU">
+                  <Label fx:id="cpuName" alignment="CENTER" layoutX="486.0" layoutY="24.0" prefHeight="70.0" prefWidth="312.0" text="CPU">
                      <font>
                         <Font name="Segoe UI Black" size="48.0" />
                      </font>
                      <textFill>
-                        <LinearGradient cycleMethod="REFLECT" endX="0.8409090665253726" endY="0.8522727236603246" startX="0.4507575613079649" startY="0.36363632389993367">
+                        <LinearGradient cycleMethod="REFLECT" endX="0.45454543738654163" endY="0.8333333387519374" startX="0.7689393289161451" startY="0.44696961388443446">
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.821052610874176" green="0.07283040881156921" blue="0.03345029056072235" />
+                                    <Color red="0.18208447098731995" green="0.7157894968986511" blue="0.03446393832564354" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.006729475100942127">
+                                 <color>
+                                    <Color red="0.18208447098731995" green="0.7157894968986511" blue="0.03446393832564354" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="0.8535672426223755" green="0.8618791699409485" blue="0.8631578683853149" />
+                                    <Color red="0.49000000953674316" green="1.0" blue="0.4333333373069763" />
                                  </color>
                               </Stop>
                            </stops>
@@ -139,6 +170,33 @@
                         <Bloom />
                      </effect>
                   </Label>
+                  <Button fx:id="btnReset" mnemonicParsing="false" onAction="#handleReset" prefHeight="46.0" prefWidth="107.0" style="-fx-border-width: 4px; -fx-border-color: linear-gradient(to bottom, #64dc46,  #26c103); -fx-border-style: hidden hidden solid hidden; -fx-background-color: transparent; -fx-border-radius: 1px; -fx-pref-height: 45px; -fx-pref-width: 100px;" styleClass="Button" stylesheets="@../../GameView.css" text="Reset">
+                     <font>
+                        <Font name="Segoe UI Bold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Bloom />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <textFill>
+                        <LinearGradient cycleMethod="REFLECT" endX="0.03409096779245313" endY="1.0" startX="0.8257576055598982" startY="0.5909090872966882">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.10050000250339508" green="0.6700000166893005" blue="0.2298661172389984" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.49712279438972473" green="0.9684210419654846" blue="0.44475632905960083" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Button>
                </children>
             </HBox>
          </top>
@@ -254,7 +312,7 @@
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="0.4771929681301117" green="0.8460233807563782" blue="0.8947368264198303" />
+                                    <Color red="0.6491072177886963" green="0.9263157844543457" blue="0.5798050761222839" />
                                  </color>
                               </Stop>
                            </stops>
