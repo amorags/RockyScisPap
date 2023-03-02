@@ -1,14 +1,26 @@
 package rps.gui.controller;
 
 // Java imports
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextInputDialog;
+import javafx.util.Duration;
+import rps.bll.game.Move;
+import rps.bll.player.AI;
+import rps.bll.player.Player;
 import rps.gui.ConsoleApp;
+import javafx.scene.*;
 
+import javax.swing.*;
+import javax.swing.text.html.ImageView;
+import java.awt.*;
+import java.io.File;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Timer;
 
@@ -18,7 +30,11 @@ import java.util.Timer;
  */
 public class GameViewController implements Initializable {
 
+ private AI ai;
+
    private ConsoleApp consoleApp;
+   private Move move;
+
 
    @FXML
    private Label winLose;
@@ -26,7 +42,7 @@ public class GameViewController implements Initializable {
     private Label cpuName;
 
     @FXML
-    private Label playerName;
+    public Label playerName;
 
     @FXML
     private Label scoreCPU;
@@ -40,12 +56,13 @@ public class GameViewController implements Initializable {
     @FXML
     private Button btnRock;
 
+
     @FXML
     private Button btnSci;
 
+    private int p1Score = 0;
 
-
-
+    private int cpuScore = 0;
 
     /**
      * Initializes the controller class.
@@ -58,17 +75,111 @@ public class GameViewController implements Initializable {
      cpuName.setText(name);
     }
 
-    public void handleRock(javafx.event.ActionEvent actionEvent) throws InterruptedException {
-      winLose.setVisible(true);
-      wait(50);
-      winLose.setVisible(false);
+    public void setScoreP1(){
+     p1Score = p1Score + 1;
+     scoreP1.setText(p1Score + "");
+ }
+
+ public void setScoreCPU(){
+  cpuScore = cpuScore + 1;
+  scoreCPU.setText(cpuScore + "");
+ }
+
+    public void resetGame(){
+     winLose.setVisible(false);
+    }
+
+    public void handleRock(javafx.event.ActionEvent actionEvent) {
+     ai.simpleAIMove();
+      Move aiMove = ai.simpleAIMove();
+
+      if (aiMove == Move.Rock) {
+       winLose.setText("Draw");
+       winLose.setVisible(true);
+       startLabelPulsating(winLose);
+
+      }
+
+      if (aiMove == Move.Scissor) {
+       winLose.setText("YOU WIN!");
+       setScoreP1();
+       startLabelPulsating(winLose);
+      }
+
+     if (aiMove == Move.Paper) {
+      winLose.setText("YOU LOSE!");
+      setScoreCPU();
+      startLabelPulsating(winLose);
+     }
 
     }
 
     public void handlePaper(ActionEvent actionEvent) {
+     ai.simpleAIMove();
+     Move aiMove = ai.simpleAIMove();
+
+     if (aiMove == Move.Rock) {
+      winLose.setText("YOU WIN");
+      winLose.setVisible(true);
+      setScoreP1();
+      startLabelPulsating(winLose);
+     }
+
+     if (aiMove == Move.Scissor) {
+      winLose.setText("YOU LOSE!");
+      winLose.setVisible(true);
+      setScoreCPU();
+      startLabelPulsating(winLose);
+
+     }
+
+     if (aiMove == Move.Paper) {
+      winLose.setText("DRAW!");
+      winLose.setVisible(true);
+      startLabelPulsating(winLose);
+     }
     }
 
     public void handleSci(ActionEvent actionEvent) {
+     ai.simpleAIMove();
+     Move aiMove = ai.simpleAIMove();
 
+     if (aiMove == Move.Rock) {
+      winLose.setText("YOU LOSE");
+      winLose.setVisible(true);
+      setScoreCPU();
+      startLabelPulsating(winLose);
+     }
+
+     if (aiMove == Move.Scissor) {
+      winLose.setText("DRAW!");
+      winLose.setVisible(true);
+      startLabelPulsating(winLose);
+
+     }
+
+     if (aiMove == Move.Paper) {
+      winLose.setText("YOU WIN!");
+      winLose.setVisible(true);
+      setScoreP1();
+      startLabelPulsating(winLose);
+     }
     }
+
+ private void startLabelPulsating(Label label) {
+  ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(1), label);
+  scaleTransition.setToX(1.2);
+  scaleTransition.setToY(1.2);
+  scaleTransition.setAutoReverse(true);
+  scaleTransition.setCycleCount(Timeline.INDEFINITE);
+  scaleTransition.play();
+  label.setUserData(scaleTransition);
+
+  PauseTransition pauseTransition = new PauseTransition(Duration.seconds(5));
+  pauseTransition.setOnFinished(event -> {
+   scaleTransition.stop();
+   label.setVisible(false);
+  });
+  pauseTransition.play();
+ }
 }

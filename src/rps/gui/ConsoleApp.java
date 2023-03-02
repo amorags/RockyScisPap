@@ -59,9 +59,9 @@ public class ConsoleApp {
         String[] botNames = new String[] {
                 "R2D2",
                 "Mr. Data",
-                "3PO",
+                "Turing",
                 "Bender",
-                "Marvin the Paranoid Android",
+                "WALL-E",
                 "Bishop",
                 "Robot B-9",
                 "HAL"

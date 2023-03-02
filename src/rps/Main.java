@@ -5,15 +5,21 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 import rps.gui.ConsoleApp;
 import rps.gui.JavaFXApp;
+import rps.gui.controller.GameViewController;
+
+import java.util.Optional;
 
 
-    public class Main extends Application {
+
+public class Main extends Application {
 
         @Override
         public void start(Stage primaryStage) throws Exception{
+
             Parent root = FXMLLoader.load(getClass().getResource("gui/view/GameView.fxml"));
             primaryStage.setTitle("Rock Paper Scissor");
             // primaryStage.setFullScreen(true);
@@ -25,6 +31,7 @@ import rps.gui.JavaFXApp;
         public static void main(String[] args) {
             launch(args);
         }
+
     }
 
 
