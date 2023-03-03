@@ -30,7 +30,7 @@ import java.util.Timer;
  */
 public class GameViewController implements Initializable {
 
- private AI ai;
+ private AI ai = AI.getInstance();
 
 
    private ConsoleApp consoleApp;
@@ -122,8 +122,8 @@ public void setGameRound(){
  }
 
     public void handleRock(javafx.event.ActionEvent actionEvent) {
-     ai.simpleAIMove();
-      Move aiMove = ai.simpleAIMove();
+     //ai.simpleAIMove();
+      Move aiMove = ai.AIMove();
 
       if (aiMove == Move.Rock) {
        setImageOff();
@@ -160,10 +160,10 @@ public void setGameRound(){
     }
 
     public void handlePaper(ActionEvent actionEvent) {
-     ai.simpleAIMove();
-     Move aiMove = ai.simpleAIMove();
+        //ai.simpleAIMove();
+        Move aiMove = ai.AIMove();
 
-     if (aiMove == Move.Rock) {
+        if (aiMove == Move.Rock) {
       setImageOff();
       resetLabel(winLose);
       fillLabel(winLose, "YOU WIN!");
@@ -198,8 +198,9 @@ public void setGameRound(){
     }
 
     public void handleSci(ActionEvent actionEvent) {
-     ai.simpleAIMove();
-     Move aiMove = ai.simpleAIMove();
+        //ai.simpleAIMove();
+        Move aiMove = ai.AIMove();
+
 
      if (aiMove == Move.Rock) {
       setImageOff();

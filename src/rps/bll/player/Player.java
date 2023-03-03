@@ -51,15 +51,6 @@ public class Player implements IPlayer {
         ArrayList<Result> results = (ArrayList<Result>) state.getHistoricResults();
 
         //Implement better AI here...
-        return  AI.simpleAIMove();
-    }
-
-    private Move simpleAI(){
-        ArrayList<Move> moves = new ArrayList<>();
-        moves.add(Move.Paper);
-        moves.add(Move.Scissor);
-        moves.add(Move.Rock);
-        Collections.shuffle(moves);
-        return moves.get(0);
+        return  AI.AIMove();
     }
 }
